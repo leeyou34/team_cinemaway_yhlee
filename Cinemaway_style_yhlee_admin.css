@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 박스 영역은 테두리까지 지정 */
+}
+a{
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+#container {
+    margin: 0 auto;     /* 화면 중앙에 배치 */
+    width: 1200px;      /*너비 지정*/
+}
+/* 헤더 영역 */
+header {
+    /* margin-left: 20px; */
+    width: 100%;
+    height: 100px;
+    background-color: #000; /* 위치 확인을 위해 임의로 지정한 색*/
+}
+
+/* 로고 영역 */
+#logo {
+    float: left;
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 30px;
+}
+#logo button {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+#logo h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(71, 25, 4); /* 임의 지정 색 */
+}
+/* 내비게이션 영역 */
+nav {
+    float: right;
+    width: 900px;
+    height: 100px;
+    padding-top: 40px;
+    margin-top: px;
+    margin-right: 40px;
+}
+/*개발자 이영호, div class="adminlogin"내역 add함..*/
+.adminlogin {
+    position: absolute; 
+    left:50%; 
+    margin-left:-50px; 
+    top:50%; 
+    margin-top:-50px;
+}
+form ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+.adminnavigation {
+    width: 250px;
+    height: 700px;
+    position: absolute; 
+    margin-top: 20px;
+    text-align: center;
+    border-right: 1px solid gray;
+}
+.adminsection {
+    position: absolute;
+    margin-left: 280px; /*일부러 .adminnavigation div랑 30px 옆으로 더 띄움...*/
+    margin-top: 20px;
+
+}

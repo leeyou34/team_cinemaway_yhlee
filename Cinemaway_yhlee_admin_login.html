@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemaway</title>
+    <link rel="stylesheet" href="Cinemaway_style_yhlee_admin.css">
+</head>
+<body>
+    <div id = "container">
+        <header>
+            <div id = "logo">
+                <a href="Cinemaway.html">
+                    <h1>Cinemaway</h1>
+                </a>
+            </div>
+            <nav>
+
+
+            </nav>
+        </header>
+        <!--헤더 아래의 공간지정-->
+        <section style="width:1200px; height: 700px;" >
+            <div class="adminlogin">
+                <h1>관리자 로그인</h1>
+                    <form action="login.php" method ="POST">
+                        <ul>
+                            <li>
+                                <input type="text" placeholder="아이디" name="id" id ="id" style="width: 160px;">
+                            </li>
+                            <li>
+                                <input type="password" placeholder="비밀번호" name="pw" id ="pw" style="width: 160px;">
+                            </li>
+                            <li>
+                                <input type="submit" title="로그인" value="로그인" style="width: 160px;" alt="adminlogin">
+                            </li>
+                        </ul>
+                    </form>
+            </div>    
+
+        </section>
+    </div>
+</body>
+</html>
