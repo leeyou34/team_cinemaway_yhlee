@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cinemaWay</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cinema_style.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <!-- 검색창 스크립트 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- 용원씨가 준 그뭐야 영화 가로 정렬 스크립트 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+    <!-- 폰트 스크립트 -->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+   
+    <!--위로가기 버튼 구현-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!--하기는 이영호가 사용한 css 스타일-->
+    <style>
+        .containerAlignCenter{
+          display: flex;
+          justify-content: center;
+          align-items: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        .containerAlignCenter h2{
+          display: flex;
+          justify-content: center;
+          align-items: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        .row{
+          display: flex;
+          justify-content: center;
+          align-items: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+        .table-responsive{
+          display: flex;
+          justify-content: center;
+          align-items: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+        .col-sm-2 {
+            margin: 20px;
+            border: 1px solid #333741;
+            vertical-align: middle;
+            line-height: 80px;
+           }
+
+        .col-sm-2:hover {
+            animation-play-state: paused;
+            background: #333741;
+            color:white;
+        }
+
+        .search-full input[type="search"] {
+            border: 1px solid #fff;
+        }
+        
+        .search input[type="search"] {
+            border-radius: 30px;
+            box-sizing: border-box;
+            color: #666;
+            height: 40px;
+            padding-left: 40px;
+            padding-right: 20px;
+            -webkit-appearance: none;
+            width: 50%;
+        }
+        a { 
+            text-decoration: none; 
+        }
+        /*하기는 category.loginAccountManagement에 사용된 css style...*/
+        #accountPasswordChange h2{
+            text-align:left;
+            margin-top: 37px;
+            margin-bottom: 37px;
+        }
+        .accordion-body{
+            text-align:left;
+        }
+        #accountPasswordLost h2{
+            text-align:left;
+            margin-top: 37px;
+            margin-bottom: 37px;
+        }
+                /*
+        맨 위로 가기 버튼
+         */
+         #wrapBackToTop{
+            margin:0 auto;
+            width:300px;
+            }
+        #back-to-top {
+            display: inline-block;
+            background-color: #FF9800;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            transition: background-color .3s, 
+                opacity .5s, visibility .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            }
+        #back-to-top::after {
+            content: "\f0d8";
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 2em;
+            line-height: 50px;
+            color: #fff;
+            }
+        #back-to-top:hover {
+            cursor: pointer;
+            background-color: #333;
+            }
+        #back-to-top:active {
+            background-color: #555;
+            }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            }
+            /*
+            뒤로 가기 버튼 
+            */
+        #wrapBackToBackPage{
+            margin:0 auto;
+            width:300px;
+            }
+        #back-to-backpage {
+            display: inline-block;
+            background-color: #FF9800;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 4px;
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            transition: background-color .3s, 
+                opacity .5s, visibility .5s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            }
+        #back-to-backpage::after {
+            content: "\f0d9";
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 2em;
+            line-height: 50px;
+            color: #fff;
+            }
+        #back-to-backpage:hover {
+            cursor: pointer;
+            background-color: #333;
+            }
+        #back-to-backpage:active {
+            background-color: #555;
+            }
+        #back-to-backpage.show {
+            opacity: 1;
+            visibility: visible;
+            }
+      </style>
+      <script>
+        /* 맨 위로 가기 버튼의 스크립트.*/
+        $(function(){
+          $('#back-to-top').on('click',function(e){
+              e.preventDefault();
+              $('html,body').animate({scrollTop:0},100);
+          });
+          
+          $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+              $('#back-to-top').addClass('show');
+            } else {
+              $('#back-to-top').removeClass('show');
+            }
+          });
+        });
+        /* 뒤로 가기 버튼의 스크립트.*/
+        /*back-to-backpage */
+        $(function(){
+        //   상기 코드 중 일부 숨김...
+        //   $('#back-to-backpage').on('click',function(e){
+        //       e.preventDefault();
+        //       $('html,body').animate({scrollTop:0},100);
+        //   });
+          $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+              $('#back-to-backpage').addClass('show');
+            } else {
+              $('#back-to-backpage').removeClass('show');
+            }
+          });
+        });
+        /*뒤로가기 자바스크립트 기능... */
+        /* 뒤로가기 버튼 javacript... 그러나 기능 구현이 아니 되어 주석 처리함..
+        function goBack(){
+            window.history.back();
+        }      
+        */
+      </script>
+</head>
+<body>
+
+   <!-- 네비게이션 -->
+   <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+    <div class="container">
+
+
+        <!-- 가로 작아질때 메뉴 왼쪽에 三으로 보이게, 게시판 목록과 연결하기 -->
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 三 끝 -->
+
+
+
+        <!-- 로고부분 (나중에 경로수정하기) -->
+        <a href="index_test.html" class="navbar-brand logo-image">
+            <img src="C:\Users\JEH\Desktop\Dev211\CinemaWay_home\images\cinemaway_logo.png" alt="logo"></a> 
+
+        
+
+        <!-- 게시판 목록 -->
+            <div class="collapse navbar-collapse" id="navbarSideCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">영화</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TV 프로그램</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <li><a class="dropdown-item" href="#">리뷰게시판</a></li>
+                        <li><div class="dropdown-divider"></div></li>
+                        <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                        <li><div class="dropdown-divider"></div></li>
+                        <li><a class="dropdown-item" href="#">고객센터</a></li>
+                    </ul>
+            </ul>
+        </div>
+            <!-- 게시판 목록 끝 -->
+
+
+
+
+        <!-- 검색창 -->
+        <!-- d-inline-flex : 부모영역의 테두리가 자식의 크기에 맞게 줄어듬 자신또한 in-line처럼 배치가능 -->
+            <div class="d-inline-flex justify-content-right">
+                <!-- <div class="col-md-5"> -->
+                    <div class="form">
+                       <i class="fa fa-search"></i>
+                       <input type="text" class="form-control form-input" placeholder="작품 또는 장소를 검색해보세요.">
+                       <span class="right-pan"></span>
+                    </div>
+                <!-- </div> -->
+            <!-- </div> -->
+
+            <!-- 검색창 끝 -->
+
+
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">로그인</a>
+                </li>
+            </ul>
+            <span class="nav-item">
+                <a class="btn-outline-sm" href="#">회원가입</a>
+            </span>
+        </div> <!-- end of navbar-collapse -->
+    </div> <!-- end of container -->
+</nav> <!-- end of navbar -->
+<!-- 네비게이션 끝 -->
+
+        <!-- 이영호 작업본. 2.customerservice.category.loginAccountmanagement
+            body 부분은 곧 div이며 div 안에 3개의 ID를 선언하여 구분 하였음. 하기는 div id를 풀의함.
+ 
+        -->
+
+    <div class="row">
+        <div id="emptySpaceForHeadSection" style="height:82px;">   
+            <!--헤더 섹션이 없어서 emptySpace를 div으로 선언함...-->            
+        </div>
+        <div id="bodyOfCustomerService"> 
+            <!--질문 검색창-->
+            
+                <div id="searchtool" class="searchtool">
+                    <div id="main-content" style="height:190px; max-width: 100%; background-color: #333741">
+                        <div class="hero-inner" style="height:190px;">
+                            <br>
+                                <h1 style="color: white; height: 80px;">Cinemaway</h1>
+                                <br>
+                                <h4 style="color: white; font-weight: normal;">직접 문의 게시판</h4>
+                        </div>
+                    </div>
+                </div>
+            
+        </div> 
+        <!-- 문의 등록 게시판
+        한용원의 게시판 코드에서 추출하여 사용함.
+        -->
+        <div class="m-5"><img src="images/자리차지용.jpg" alt=""></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    궁금하시거나 문의하고 싶은 내역들을 하기에 적어서 제출 주시면 빠른 시일내에 답변 드리겠습니다.
+                    </div>
+                    <div class="col-3">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>문의 분야</option>
+                            <option value="1">로그인/계정관리</option>
+                            <option value="2">탈퇴</option>
+                            <option value="3">사용 문의</option>
+                            <option value="4">컨텐츠</option>
+                            <option value="5">사용 오류</option>
+                            <option value="6">문의 등록</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form action="writerAction" method="post">
+                        <h2></h2>
+                        <input type="hidden" name="bdGroup" value=<%=bdGroup%>
+                        <input type="hidden" name="bdOrder" value=<%=bdOrder%>
+                        <input type="hidden" name="bdIndent" value=<%=bdIndent%>
+                        <input type="text" name="bdTitle" class="form-control mt-4 mb-2"
+                            placeholder="제목을 입력해주세요." required
+                        >
+                        <div class="form-group">
+                            <textarea class="form-control" rows="10" name="bdContent"
+                                placeholder="내용을 입력해주세요" required
+                            ></textarea>
+                        </div>
+
+                        <!-- <button type="submit" class="btn btn-secondary mb-3">제출하기</button> -->
+                        <div class="d-grid gap-2 col-6 mx-auto m-5">
+                            <button class="btn btn-secondary" type="button" onclick="location.href='Cinemaway_review.html'">글올리기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+
+<!-- 임시로 배껴온 푸터  -->
+<div class="footer bg-dark">
+    <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-col first">
+                            <h6>CinemaWay</h6>
+                            <p class="p-small">CinemaWay 어쩌구 저쩌구<br>비트캠프 JAVA 211기 B-4조</p>
+                            <p class="p-small">강남 어쩌구 비트캠프 주소 적기</p>
+                        </div> <!-- end of footer-col -->
+                        <div class="footer-col second">
+                            <h6>Links</h6>
+                            <ul class="list-unstyled li-space-lg p-small">
+                                <li>Important: <a href="terms.html">Terms & Conditions</a>, <a href="privacy.html">Privacy Policy</a></li>
+                                <li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon Library</a>, <a href="#">Illustrations</a></li>
+                                <li>Menu: <a href="#header">Home</a>, <a href="#details">Details</a>, <a href="#services">Services</a>, <a href="#contact">Contact</a></li>
+                            </ul>
+                        </div> <!-- end of footer-col -->
+                        <div class="footer-col third">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-pinterest-p fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-instagram fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <p class="p-small">We would love to hear from you <a href="mailto:contact@site.com"><strong>contact@site.com</strong></a></p>
+                        </div> <!-- end of footer-col -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of footer -->  
+        <!-- end of footer -->
+        
+        
+        <!-- 카피라이트 -->
+        <div class="copyright bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">Copyright © <a href="#">JAVA211 BitCamp B-4, All rights reserved.</a></p>
+                    </div> <!-- end of col -->
+                </div> <!-- enf of row -->
+    
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="p-small">어쩌구 저쩌구 <a href="#">으짜구저쩌구</a></p>
+                    </div> <!-- end of col -->
+                </div> <!-- enf of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of copyright --> 
+        <!-- end of copyright -->
+        <!-- 맨 위로 가기 버튼의 스크립트.-->
+        <div id="wrapBackToBackPage">
+            <a id="back-to-backpage" onclick="location.href='index_test.yhthomaslee.customerservice.main.html'"><!--해당 코드는 뒤로가기 기능을 적용했으나 작동하지 않아 url로 대처함.--></a>
+        </div>
+        <div id="wrapBackToTop">
+            <a id="back-to-top"></a>
+        </div>
+
+    </body>
+    </html>
+    
+    
+    
+    
+    
+    
+    <!-- 용원씨가 준 js 파일 -->
+    
+    <script>
+        // categories
+        new Swiper('.swiper-container', {
+            
+        slidesPerView : 6, // 동시에 보여줄 슬라이드 갯수
+        spaceBetween : 5, // 슬라이드간 간격
+        slidesPerGroup : 6, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+        
+        // 그룹수가 맞지 않을 경우 빈칸으로 메우기
+        // 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+        loopFillGroupWithBlank : true,
+        
+        loop : true, // 무한 반복
+        
+        breakpoints : true, // 반응형 슬라이드
+        
+        navigation : { // 네비게이션
+        nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+        prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+    },
+});
+</script>
+
+<!-- js파일 끝 -->
